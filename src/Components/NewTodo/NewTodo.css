@@ -1,0 +1,60 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.Container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.Input-Container{
+  display: flex;
+  width:100%;
+  justify-content: center;
+}
+.Form-Btn-Container{
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  background-color: white;
+}
+.Form-Input-Container{
+  width: 45rem;
+}
+.Form__Input {
+  font-size: 2rem;
+  outline: none;
+  padding: 1rem;
+  border-bottom-left-radius: 5rem;
+  border-top-left-radius: 5rem;
+  border: none;
+  text-indent: 12px;
+  width: 100%;
+}
+.Form__Button {
+  padding: 1rem;
+  width: 4rem;
+  height: 4rem;
+  margin-top: 6px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 100%;
+  background-color: rgb(36, 106, 255);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.Form {
+  height: 49%;
+  margin-bottom: 4rem;
+}
+.Form__Button:active {
+  outline: none;
+  scale: 0.9;
+  transition-duration: 0.1s;
+  border: none;
+}
+.Form__Title {
+color: white;
+font-size: 3rem;
+font-weight: bold;
+}
