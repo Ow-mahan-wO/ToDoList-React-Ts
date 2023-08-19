@@ -1,10 +1,10 @@
-.Item-Container{
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+.Item-Container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 .Todo-Name-Container {
-  width: 19%;
+  width: 22rem;
   padding-left: 1rem;
   background-color: white;
   color: rgb(36, 106, 255);
@@ -12,17 +12,47 @@
   font-size: 24px;
 }
 .Todo-Btn-Container {
-  background-color: white;  
+  background-color: white;
   width: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.Todo__btn{
-    padding: 0.5rem 1rem;
-    background-color: rgb(36, 106, 255);
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 1.5rem;
+.Todo__btn {
+  padding: 0.5rem 1rem;
+  background-color: rgb(36, 106, 255);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.Item-Container-Complete {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  background-color: rgba(153, 153, 153, 0.65);
+}
+.Todo-Name-Container-Complete {
+  width:22rem;
+  padding-left: 1rem;
+  color: rgb(36, 106, 255);
+  font-weight: bold;
+  font-size: 24px;
+  background-color: rgba(153, 153, 153, 0.65);
+}
+.Todo__Name-Complete {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: line-through;
+}
+.Todo__btn-Complete {
+  display: none;
+}
+.Todo-Btn-Container-Complete {
+  background-color: rgba(153, 153, 153, 0.65);
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
