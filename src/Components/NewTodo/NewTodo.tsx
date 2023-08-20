@@ -11,6 +11,7 @@ export const NewTodo:React.FC<NewTodoProps> =props=>{
     event.preventDefault();
     const TodoText=Myref.current!.value
     props.onAddTodo(TodoText)
+    
     Myref.current!.value=''
     }
     return(

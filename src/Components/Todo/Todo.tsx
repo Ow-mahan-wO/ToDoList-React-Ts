@@ -7,29 +7,35 @@ interface TodoProps{
     setTodo:React.Dispatch<React.SetStateAction<TodoArray[]>>;
 }
 const TodoList:React.FC<TodoProps> =props=>{
-    
+
+  let LocalStorageArray=JSON.parse(localStorage.getItem('value')!)
     const RemoveTodoHandler=(ItemId:string)=>{
       for (let i = 0; i < props.Item.length; i++) {
       if(props.Item[i].Todo==ItemId){
         props.Item.splice(i,1);
+        LocalStorageArray.splice(i,1)
+        localStorage.setItem('value',JSON.stringify(LocalStorageArray))
       }
-      }
+    }
  
       props.setTodo([...props.Item])
     }
 
     const CompleteTodo=(ItemId:number)=>{
-    props.Item.forEach((index)=>{
-      if(ItemId==index.id){
-        index.Status=true 
+      for (let i = 0; i < props.Item.length; i++) {
+        if(props.Item[i].id==ItemId){
+          LocalStorageArray[i].Status=true;
+          localStorage.setItem('value',JSON.stringify(LocalStorageArray))
+        }
       }
-    })
     props.setTodo([...props.Item])
     
     }
     return(
-        <>
-         {props.Item.map((item)=>(
+      <>
+
+         {
+         props.Item.map((item)=>(
             <div className="Item-Container" key={item.id}>
                 <div className={!item.Status?"Todo-Name-Container":"Todo-Name-Container-Complete"}>
                   <p className={!item.Status?"Todo__Name":"Todo__Name-Complete"}>{item.Todo}</p>
