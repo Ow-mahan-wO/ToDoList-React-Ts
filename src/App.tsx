@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
 import './App.css'
 
 import { TodoList } from './Components/Todo/Todo'
@@ -8,6 +8,7 @@ import { TodoArray } from './Todo.Model'
 let TodoId=0
 const App:React.FC=()=> {
   const [Todos,setTodo]=useState<TodoArray[]>([]);
+  localStorage.setItem("value", JSON.stringify(Todos));
   
   
   const AddTodoHandler=(Todo:string)=>{
