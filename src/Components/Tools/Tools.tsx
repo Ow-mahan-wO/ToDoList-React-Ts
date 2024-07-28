@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "./NewTodo.css";
 
-type ToolsProps {
+type ToolsProps = {
   onNewTask: (Todo: string) => void;
 }
 
