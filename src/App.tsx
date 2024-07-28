@@ -3,18 +3,18 @@ import "./App.css";
 
 import { TodoList } from "./Components/Todo/Todo";
 import { NewTodo } from "./Components/NewTodo/NewTodo";
-import { TodoArray } from "./Todo.Model";
+import { Todo } from "./models/Todo.Model";
 
 let TodoId = 0;
 const App: React.FC = () => {
-  const [Todos, setTodo] = useState<TodoArray[]>([]);
+  const [Todos, setTodo] = useState<Todo[]>([]);
 
   const AddTodoHandler = (Todo: string) => {
-    Todos.push({ id: TodoId++, Todo: Todo, Status: false });
-    setTodo(()=>[...Todos,{ id: TodoId++, Todo: Todo, Status: false }])
+    Todos.push({ id: TodoId++, title: Todo, status: false });
+    setTodo(() => [...Todos, { id: TodoId++, title: Todo, status: false }]);
     localStorage.setItem("value", JSON.stringify(Todos));
   };
-  
+
   return (
     <>
       <NewTodo onAddTodo={AddTodoHandler} />
