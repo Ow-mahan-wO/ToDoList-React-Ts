@@ -1,26 +1,26 @@
 import { useState } from "react";
 import "./App.css";
 
-import TodoList from "./components/Todo/Todo";
 import NewTodo from "./components/NewTodo/NewTodo";
-import { Todo } from "./models/todo.model";
+import { Task } from "./models/task.model";
+import TasksList from "./components/TasksList/TasksList";
 
-let TodoId = 0;
+let TaskId = 0;
 export default function App() {
-  const [Todos, setTodo] = useState<Todo[]>([]);
+  const [Tasks, setTask] = useState<Task[]>([]);
 
-  const AddTodoHandler = (Todo: string) => {
-    Todos.push({ id: TodoId++, title: Todo, status: false });
-    setTodo(() => [...Todos, { id: TodoId++, title: Todo, status: false }]);
-    localStorage.setItem("value", JSON.stringify(Todos));
+  const AddTaskHandler = (Task: string) => {
+    Tasks.push({ id: TaskId++, title: Task, status: false });
+    setTask(() => [...Tasks, { id: TaskId++, title: Task, status: false }]);
+    localStorage.setItem("value", JSON.stringify(Tasks));
   };
 
   return (
     <>
-      <NewTodo onAddTodo={AddTodoHandler} />
-      <TodoList
-        list={JSON.parse(localStorage.getItem("value")!) || Todos}
-        setTodo={setTodo}
+      <NewTodo onAddTodo={AddTaskHandler} />
+      <TasksList
+        list={JSON.parse(localStorage.getItem("value")!) || Tasks}
+        setTask={setTask}
       />
     </>
   );

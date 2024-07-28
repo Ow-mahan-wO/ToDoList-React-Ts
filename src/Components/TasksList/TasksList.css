@@ -1,0 +1,60 @@
+.task-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.task-container__name-box {
+  width: 22rem;
+  padding-left: 1rem;
+  background: white;
+  color: rgb(36, 106, 255);
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.task-container__name-box--completed {
+  width: 22rem;
+  padding-left: 1rem;
+  background: rgba(153, 153, 153, 0.65);
+  color: rgb(36, 106, 255);
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.name-box--completed {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: line-through;
+}
+
+.task-btn-container {
+  background: white;
+  width: 5rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-btn-container--complete {
+  background: rgba(153, 153, 153, 0.65);
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task__btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: rgb(36, 106, 255);
+  color: white;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.task__btn--complete {
+  display: none;
+}
