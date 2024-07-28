@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import { TodoList } from "./Components/Todo/Todo";
-import { NewTodo } from "./Components/NewTodo/NewTodo";
-import { Todo } from "./models/Todo.Model";
+import { TodoList } from "./components/Todo/Todo";
+import { NewTodo } from "./components/NewTodo/NewTodo";
+import { Todo } from "./models/todo.model";
 
 let TodoId = 0;
 const App: React.FC = () => {
