@@ -19,7 +19,7 @@ export default function App() {
     <>
       <NewTodo onAddTodo={AddTodoHandler} />
       <TodoList
-        Item={JSON.parse(localStorage.getItem("value")!) || Todos}
+        list={JSON.parse(localStorage.getItem("value")!) || Todos}
         setTodo={setTodo}
       />
     </>

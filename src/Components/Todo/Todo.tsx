@@ -3,36 +3,36 @@ import { Todo } from "../../models/todo.model";
 import "./Todo.css";
 
 interface TodoListProps {
-  Item: { id: number; title: string; status: boolean }[];
+  list: { id: number; title: string; status: boolean }[];
   setTodo: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
 export default function TodoList(props: TodoListProps) {
   let LocalStorageArray = JSON.parse(localStorage.getItem("value")!);
   const RemoveTodoHandler = (ItemId: string) => {
-    for (let i = 0; i < props.Item.length; i++) {
-      if (props.Item[i].title == ItemId) {
-        props.Item.splice(i, 1);
+    for (let i = 0; i < props.list.length; i++) {
+      if (props.list[i].title == ItemId) {
+        props.list.splice(i, 1);
         LocalStorageArray.splice(i, 1);
         localStorage.setItem("value", JSON.stringify(LocalStorageArray));
       }
     }
 
-    props.setTodo([...props.Item]);
+    props.setTodo([...props.list]);
   };
 
   const CompleteTodo = (ItemId: number) => {
-    for (let i = 0; i < props.Item.length; i++) {
-      if (props.Item[i].id == ItemId) {
+    for (let i = 0; i < props.list.length; i++) {
+      if (props.list[i].id == ItemId) {
         LocalStorageArray[i].status = true;
         localStorage.setItem("value", JSON.stringify(LocalStorageArray));
       }
     }
-    props.setTodo([...props.Item]);
+    props.setTodo([...props.list]);
   };
   return (
     <>
-      {props.Item.map((item) => (
+      {props.list.map((item) => (
         <div className="Item-Container" key={item.id}>
           <div
             className={
