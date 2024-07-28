@@ -2,11 +2,12 @@ import React from "react";
 import { Todo } from "../../models/todo.model";
 import "./Todo.css";
 
-interface TodoProps {
+interface TodoListProps {
   Item: { id: number; title: string; status: boolean }[];
   setTodo: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
-const TodoList: React.FC<TodoProps> = (props) => {
+
+export default function TodoList(props: TodoListProps) {
   let LocalStorageArray = JSON.parse(localStorage.getItem("value")!);
   const RemoveTodoHandler = (ItemId: string) => {
     for (let i = 0; i < props.Item.length; i++) {
@@ -94,6 +95,4 @@ const TodoList: React.FC<TodoProps> = (props) => {
       ))}
     </>
   );
-};
-
-export { TodoList };
+}
