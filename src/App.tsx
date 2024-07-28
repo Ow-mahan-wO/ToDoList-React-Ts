@@ -1,27 +1,28 @@
 import { useState } from "react";
 import "./App.css";
 
-import NewTodo from "./components/NewTodo/NewTodo";
+import Tools from "./components/Tools/Tools";
 import { Task } from "./models/task.model";
 import TasksList from "./components/TasksList/TasksList";
 
-let TaskId = 0;
+let taskId = 0;
 export default function App() {
-  const [Tasks, setTask] = useState<Task[]>([]);
+  const [tasks, setTask] = useState<Task[]>([]);
 
-  const AddTaskHandler = (Task: string) => {
-    Tasks.push({ id: TaskId++, title: Task, status: false });
-    setTask(() => [...Tasks, { id: TaskId++, title: Task, status: false }]);
-    localStorage.setItem("value", JSON.stringify(Tasks));
+  const createNewTask = (Task: string) => {
+    tasks.push({ id: taskId++, title: Task, status: false });
+    setTask(() => [...tasks, { id: taskId++, title: Task, status: false }]);
+    localStorage.setItem("value", JSON.stringify(tasks));
   };
 
   return (
-    <>
-      <NewTodo onAddTodo={AddTaskHandler} />
+    <div className="container">
+      <p className="app-title">To-do List</p>
+      <Tools onNewTask={createNewTask} />
       <TasksList
-        list={JSON.parse(localStorage.getItem("value")!) || Tasks}
+        list={JSON.parse(localStorage.getItem("value")!) || tasks}
         setTask={setTask}
       />
-    </>
+    </div>
   );
 }
