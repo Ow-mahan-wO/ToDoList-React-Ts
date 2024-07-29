@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "./NewTodo.css";
+import "./Tools.css";
 
 type ToolsProps = {
   onNewTask: (Todo: string) => void;
