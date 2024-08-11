@@ -1,11 +1,11 @@
-import { useRef } from "react";
+import { memo, useRef } from "react";
 import "./Tools.css";
 
 type ToolsProps = {
   onNewTask: (Todo: string) => void;
 }
 
-export default function Tools(props: ToolsProps) {
+const Tools = memo((props: ToolsProps) => {
   const taskTitleRef = useRef<HTMLInputElement>(null);
 
   const handleNewTask = () => {
@@ -41,4 +41,6 @@ export default function Tools(props: ToolsProps) {
       </div>
     </div>
   );
-}
+});
+
+export default Tools;
