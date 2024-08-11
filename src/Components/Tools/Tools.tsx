@@ -1,11 +1,10 @@
 import React, { memo, useRef } from "react";
 import "./Tools.css";
+import { useTasks } from "../../context/TasksContext";
 
-type ToolsProps = {
-  onNewTask: (Todo: string) => void;
-};
 
-const Tools = memo(({ onNewTask }: ToolsProps) => {
+const Tools = memo(() => {
+  const { addTask } = useTasks();
   const taskTitleRef = useRef<HTMLInputElement>(null);
 
   /**
@@ -14,7 +13,7 @@ const Tools = memo(({ onNewTask }: ToolsProps) => {
   const handleNewTask = (): void => {
     const newTaskTitle = taskTitleRef.current?.value;
     if (newTaskTitle) {
-      onNewTask(newTaskTitle);
+      addTask(newTaskTitle);
       taskTitleRef.current.value = "";
     }
   };
