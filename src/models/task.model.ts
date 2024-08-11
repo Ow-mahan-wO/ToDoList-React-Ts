@@ -1,5 +1,8 @@
+/**
+ * Represents a task in the to-do list.
+ */
 export interface Task {
-  title: string;
   id: number;
+  title: string;
   status: boolean;
 }

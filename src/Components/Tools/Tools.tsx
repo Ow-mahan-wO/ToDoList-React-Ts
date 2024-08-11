@@ -1,13 +1,16 @@
-import React, {  memo, useRef } from "react";
+import React, { memo, useRef } from "react";
 import "./Tools.css";
 
 type ToolsProps = {
   onNewTask: (Todo: string) => void;
-}
+};
 
 const Tools = memo(({ onNewTask }: ToolsProps) => {
   const taskTitleRef = useRef<HTMLInputElement>(null);
 
+  /**
+   * Handles the creation of a new task.
+   */
   const handleNewTask = (): void => {
     const newTaskTitle = taskTitleRef.current?.value;
     if (newTaskTitle) {
@@ -16,6 +19,10 @@ const Tools = memo(({ onNewTask }: ToolsProps) => {
     }
   };
 
+  /**
+   * Handles the key down event for the input field.
+   * @param {React.KeyboardEvent<HTMLInputElement>} e - The keyboard event.
+   */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === "Enter") {
       handleNewTask();

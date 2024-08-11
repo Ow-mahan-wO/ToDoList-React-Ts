@@ -7,10 +7,16 @@ type TasksListProps = {
   setTask: Dispatch<SetStateAction<Task[]>>;
 };
 
-export default function TasksList({list, setTask}: TasksListProps) {
+/**
+ * TasksList component displays a list of tasks and provides functionality
+ * to remove tasks and mark them as complete.
+ * 
+ * @param {TasksListProps} props - The props for the component.
+ */
+export default function TasksList({ list, setTask }: TasksListProps) {
   /**
-   * Removing a specific task
-   * @param targetId the task's id that should be removed
+   * Removes a specific task by its ID.
+   * @param {number} targetId - The ID of the task to be removed.
    */
   const removeTask = (targetId: number) => {
     const updatedTasks = list.filter((task) => task.id !== targetId);
@@ -22,8 +28,8 @@ export default function TasksList({list, setTask}: TasksListProps) {
   };
 
   /**
-   * Marking a task as complete
-   * @param targetId the task's id that should be marked as complete
+   * Marks a task as complete by its ID.
+   * @param {number} targetId - The ID of the task to be marked as complete.
    */
   const markTaskAsComplete = (targetId: number) => {
     const updatedTasks = list.map((task) =>
