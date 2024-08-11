@@ -7,24 +7,18 @@ type TasksListProps = {
   setTask: Dispatch<SetStateAction<Task[]>>;
 };
 
-export default function TasksList(props: TasksListProps) {
-  // ? Tasks into the `localStorage`
-  let savedTasks: Task[];
-  const tasksInLocalStorage = localStorage.getItem("value");
-  if (tasksInLocalStorage) savedTasks = JSON.parse(tasksInLocalStorage);
-
+export default function TasksList({list, setTask}: TasksListProps) {
   /**
    * Removing a specific task
    * @param targetId the task's id that should be removed
    */
   const removeTask = (targetId: number) => {
-    props.list.map((task: Task, i: number) => {
-      if (task.id === targetId) {
-        savedTasks.splice(i, 1);
-        localStorage.setItem("value", JSON.stringify(savedTasks));
-      }
-    });
-    props.setTask([...savedTasks]);
+    const updatedTasks = list.filter((task) => task.id !== targetId);
+    localStorage.setItem(
+      "ow-mahan-wo-todo-list-tasks",
+      JSON.stringify(updatedTasks)
+    );
+    setTask(updatedTasks);
   };
 
   /**
@@ -32,18 +26,19 @@ export default function TasksList(props: TasksListProps) {
    * @param targetId the task's id that should be marked as complete
    */
   const markTaskAsComplete = (targetId: number) => {
-    props.list.map((task: Task, i: number) => {
-      if (task.id === targetId) {
-        savedTasks[i].status = true;
-        localStorage.setItem("value", JSON.stringify(savedTasks));
-      }
-    });
-    props.setTask([...props.list]);
+    const updatedTasks = list.map((task) =>
+      task.id === targetId ? { ...task, status: true } : task
+    );
+    localStorage.setItem(
+      "ow-mahan-wo-todo-list-tasks",
+      JSON.stringify(updatedTasks)
+    );
+    setTask(updatedTasks);
   };
 
   return (
     <>
-      {props.list.map((task: Task) => (
+      {list.map((task: Task) => (
         <div className="task-container" key={task.id}>
           <div
             className={
