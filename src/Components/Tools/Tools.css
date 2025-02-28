@@ -1,26 +1,20 @@
-* {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-.Container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.Input-Container{
+.tools-container{
   display: flex;
   width:100%;
   justify-content: center;
 }
-.Form-Btn-Container{
+
+.button-container {
   border-top-right-radius: 5rem;
   border-bottom-right-radius: 5rem;
   background-color: white;
 }
-.Form-Input-Container{
+
+.input-container{
   width: 45rem;
 }
-.Form__Input {
+
+.tools-container__input {
   font-size: 2rem;
   outline: none;
   padding: 1rem;
@@ -30,7 +24,8 @@
   text-indent: 12px;
   width: 100%;
 }
-.Form__Button {
+
+.tools-container__add-button {
   padding: 1rem;
   width: 4rem;
   height: 4rem;
@@ -43,18 +38,9 @@
   font-weight: bold;
   cursor: pointer;
 }
-.Form {
-  height: 49%;
-  margin-bottom: 4rem;
-}
-.Form__Button:active {
+.tools-container__add-button:active {
   outline: none;
   scale: 0.9;
   transition-duration: 0.1s;
   border: none;
-}
-.Form__Title {
-color: white;
-font-size: 3rem;
-font-weight: bold;
 }

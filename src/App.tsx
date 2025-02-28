@@ -1,29 +1,12 @@
-import React, { useState } from "react";
-import "./App.css";
+import Tools from "./components/Tools/Tools";
+import TasksList from "./components/TasksList/TasksList";
 
-import { TodoList } from "./Components/Todo/Todo";
-import { NewTodo } from "./Components/NewTodo/NewTodo";
-import { TodoArray } from "./Todo.Model";
-
-let TodoId = 0;
-const App: React.FC = () => {
-  const [Todos, setTodo] = useState<TodoArray[]>([]);
-
-  const AddTodoHandler = (Todo: string) => {
-    Todos.push({ id: TodoId++, Todo: Todo, Status: false });
-    setTodo(()=>[...Todos,{ id: TodoId++, Todo: Todo, Status: false }])
-    localStorage.setItem("value", JSON.stringify(Todos));
-  };
-  
+export default function App() {
   return (
-    <>
-      <NewTodo onAddTodo={AddTodoHandler} />
-      <TodoList
-        Item={JSON.parse(localStorage.getItem("value")!) || Todos}
-        setTodo={setTodo}
-      />
-    </>
+    <div className="container">
+      <h1 className="app-title">To-do List</h1>
+      <Tools />
+      <TasksList />
+    </div>
   );
-};
-
-export default App;
+}
