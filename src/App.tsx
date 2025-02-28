@@ -1,5 +1,5 @@
-import Tools from "./components/Tools/Tools";
-import TasksList from "./components/TasksList/TasksList";
+import TasksList from "./Components/TasksList/TasksList";
+import Tools from "./Components/Tools/Tools";
 
 export default function App() {
   return (
